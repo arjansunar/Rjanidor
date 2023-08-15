@@ -1,10 +1,10 @@
 -- [[ Whick key to register keymaps]]
 local wk = require 'which-key'
 
+-- Neotree mappings
 wk.register {
   ['<leader>o'] = { '<cmd>Neotree toggle<cr>', 'Toggle explorer' },
 }
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -15,6 +15,21 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+  },
+}
+
+-- Telescope mappings
+wk.register {
+  ['<leader>f'] = {
+    name = '+find/files',
+    f = { '<cmd>Telescope find_files<cr>', 'Find File' },
+    r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
+    n = { '<cmd>enew<cr>', 'New File' },
+  },
+  ['<leader>g'] = {
+    name = '+git',
+    t = { '<cmd>Telescope git_status<cr>', 'Git Status' },
+    b = { '<cmd>Telescope git_branches<cr>', 'Git Branches' },
   },
 }
 
