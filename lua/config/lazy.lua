@@ -42,7 +42,7 @@ require('lazy').setup {
     },
 
     { import = 'ui' },
-    { import = 'editor' },
+    { import = 'plugins' },
     -- { import = 'kickstart.plugins' },
   },
   {},
