@@ -5,6 +5,7 @@ local wk = require 'which-key'
 wk.register {
   ['<leader>o'] = { '<cmd>Neotree toggle<cr>', 'Toggle explorer' },
 }
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -22,14 +23,33 @@ require('telescope').setup {
 wk.register {
   ['<leader>f'] = {
     name = '+find/files',
+    n = { '<cmd>enew<cr>', 'New File' },
     f = { '<cmd>Telescope find_files<cr>', 'Find File' },
     r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
-    n = { '<cmd>enew<cr>', 'New File' },
+    w = { require('telescope.builtin').grep_string, 'Grep String' },
+    h = { require('telescope.builtin').help_tags, 'Help Tags' },
+    b = { require('telescope.builtin').buffers, 'Buffers' },
+    d = { require('telescope.builtin').diagnostics, 'Diagnostics' },
+    ['?'] = { require('telescope.builtin').oldfiles, 'Open Recent File' },
+    ['/'] = {
+      function()
+        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+          winblend = 10,
+          previewer = false,
+        })
+      end,
+      'Themes',
+    },
   },
   ['<leader>g'] = {
     name = '+git',
     t = { '<cmd>Telescope git_status<cr>', 'Git Status' },
     b = { '<cmd>Telescope git_branches<cr>', 'Git Branches' },
+    f = {
+      require('telescope.builtin').git_files,
+      'Search [G]it [F]iles',
+    },
   },
 }
 

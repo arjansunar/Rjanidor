@@ -1,5 +1,8 @@
 -- [[ default settings ]]
-require 'config.settings'
+require 'config.options'
+
+-- [[ keymaps ]]
+require 'config.keymaps'
 
 -- [[ Package manager]]
 require 'config.lazy'
