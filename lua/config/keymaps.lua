@@ -43,3 +43,8 @@ map({ 'i', 'v', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
 -- better indenting -- keeps selection
 map('v', '<', '<gv')
 map('v', '>', '>gv')
+
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
