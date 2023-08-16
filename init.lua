@@ -22,3 +22,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
+vim.cmd("autocmd VimEnter * Telescope find_files")

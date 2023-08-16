@@ -6,8 +6,4 @@ return {
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
   },
-  config = function ()
-    -- Open neotree automatically on startup
-    vim.cmd('autocmd VimEnter * Neotree')
-   end
 }
