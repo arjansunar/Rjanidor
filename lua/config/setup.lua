@@ -1,6 +1,7 @@
 -- [[ Whick key to register keymaps]]
 local wk = require 'which-key'
 
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -31,21 +32,24 @@ require('telescope').setup {
 }
 
 -- Telescope mappings
+local telescope_builtin = require('telescope.builtin')
+
 wk.register {
   ['<leader>f'] = {
     name = '+find/files',
     n = { '<cmd>enew<cr>', 'New File' },
-    f = { '<cmd>Telescope find_files<cr>', 'Find File' },
+    f = { telescope_builtin.find_files, 'Find File' },
     r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
-    w = { require('telescope.builtin').grep_string, 'Grep String' },
-    h = { require('telescope.builtin').help_tags, 'Help Tags' },
-    b = { require('telescope.builtin').buffers, 'Buffers' },
-    d = { require('telescope.builtin').diagnostics, 'Diagnostics' },
-    ['?'] = { require('telescope.builtin').oldfiles, 'Open Recent File' },
+    w = { telescope_builtin.live_grep, 'Live Grep String' },
+    c = { telescope_builtin.grep_string, 'Find word under cursor' },
+    h = { telescope_builtin.help_tags, 'Help Tags' },
+    b = { telescope_builtin.buffers, 'Buffers' },
+    d = { telescope_builtin.diagnostics, 'Diagnostics' },
+    ['?'] = { telescope_builtin.oldfiles, 'Open Recent File' },
     ['/'] = {
       function()
         -- You can pass additional configuration to telescope to change theme, layout, etc.
-        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        telescope_builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
         })
@@ -55,10 +59,10 @@ wk.register {
   },
   ['<leader>g'] = {
     name = '+git',
-    t = { '<cmd>Telescope git_status<cr>', 'Git Status' },
-    b = { '<cmd>Telescope git_branches<cr>', 'Git Branches' },
+    t = { telescope_builtin.git_status, 'Git Status' },
+    b = { telescope_builtin.git_branches, 'Git Branches' },
     f = {
-      require('telescope.builtin').git_files,
+      telescope_builtin.git_files,
       'Search [G]it [F]iles',
     },
   },
