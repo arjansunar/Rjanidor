@@ -22,5 +22,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
--- set colorscheme
-vim.cmd[[colorscheme tokyonight]]
