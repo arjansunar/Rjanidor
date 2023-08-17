@@ -4,7 +4,7 @@
 local map = vim.keymap.set
 
 -- source current file
-map('n', '<leader>so', "<cmd>so %<cr>", {desc= "Source current file"})
+map('n', '<leader>so', "<cmd>so %<cr>", { desc = "Source current file" })
 
 --  jk for esc
 map('i', 'jk', '<Esc>', { noremap = true })

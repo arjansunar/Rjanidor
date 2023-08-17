@@ -1,9 +1,8 @@
 return {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
     priority = 1000,
-  lazy = false,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+        require('nordic').load()
     end,
-  }
+}
