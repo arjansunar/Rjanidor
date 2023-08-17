@@ -1,14 +1,4 @@
--- [[ default settings ]]
-require 'config.options'
-
--- [[ keymaps ]]
-require 'config.keymaps'
-
--- [[ Package manager]]
-require 'config.lazy'
-
--- [[ Setup lazy packages]]
-require 'config.setup'
+require('config')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -22,4 +12,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
-vim.cmd("autocmd VimEnter * Telescope find_files")
+-- opens telescope when entering vim
+-- vim.cmd("autocmd VimEnter * Telescope find_files")
