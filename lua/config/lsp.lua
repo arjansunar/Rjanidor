@@ -67,7 +67,7 @@ local servers = {
   },
 }
 
--- Setup neovim lua configuration
+-- Setup neovim lua language server configuration
 require('neodev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -89,5 +89,5 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }

@@ -18,6 +18,7 @@ require('lazy').setup {
   {
     { import = 'ui' },
     { import = 'plugins' },
+    { import = 'kickstart.plugins' },
   },
   {},
 }
